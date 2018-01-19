@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}회원가입{% endblock %}
+
+{% block content %}
+<div class="row" style="padding-top:100px;" ng-app>
+  <div class="col-md-4 col-md-offset-4">
+    <div class="signup-panel panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Please Sign Up</h3>
+      </div>
+      <div class="panel-body">
+
+        <form class="signup sign-up-form" id="signup_form" method="post" action="{% url 'account_signup' %}" name="myForm" novalidate>
+          <input type='hidden' name='csrfmiddlewaretoken' value='PibdcTXetqAwu6FoD3cwMMO5vXRyqdF11HAOFZKfX9nzUiR8cgTMt6KIobq6RJmR' />
+          {% csrf_token %}
+          <div class="form-gruop has-feedback"
+          ng-class="{'has-error':myForm.id.$invalid&&myForm.id.$dirty,'has-success':myForm.id.$valid}">
+          <input type="text" class="form-control" id="id" name="id" ng-model="id" ng-required="true" ng-pattern="/^[A-Za-z0-9]{6,20}$/" placeholder="아이디"/>
+          <p class="help-block" ng-show="myForm.id.$error.required&&myForm.id.$dirty">반드시 입력하세요</p>
+          <p class="help-block" ng-show="myForm.id.$error.pattern &&myForm.id.$dirty">아이디는 영문자와 숫자로 구성된 6~20자로 입력해 주세요.</p>
+          <span class="form-control-feedback glyphicon glyphicon-ok" ng-show="myForm.id.$valid"></span>
+          <span class="form-control-feedback glyphicon glyphicon-remove" ng-show="myForm.id.$invalid&&myForm.id.$dirty"></span>
+        </div>
+        <br>
+        <div class="form-group has-feedback" ng-class="{'has-error':myForm.pwd.$invalid&&myForm.pwd.$dirty,'has-success':myForm.pwd.$valid}">
+          <input type="password" class="form-control" id="pwd" name="pwd" ng-model="pwd" ng-required="true" ng-pattern="/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/" ng-minlength="6" ng-maxlength="20" placeholder="비밀번호"/>
+          <p class="help-block" ng-show="myForm.pwd.$error.required&&myForm.pwd.$dirty">반드시 입력하세요</p>
+          <p class="help-block" ng-show="myForm.pwd.$error.minlength&&myForm.pwd.$dirty">최소 6자 이상 입력하세요</p>
+          <p class="help-block" ng-show="myForm.pwd.$error.maxlength&&myForm.pwd.$dirty">최대 20자 이하로 입력하세요</p>
+          <p class="help-block" ng-show="myForm.pwd.$error.pattern&&myForm.pwd.$dirty">최소 1개의 숫자 혹은 특수 문자를 포함해야합니다.</p>
+          <span class="form-control-feedback glyphicon glyphicon-ok" ng-show="myForm.pwd.$valid"></span>
+          <span class="form-control-feedback glyphicon glyphicon-remove" ng-show="myForm.pwd.$invalid&&myForm.pwd.$dirty"></span>
+        </div>
+        <div class="form-group has-feedback" ng-class="{'has-success':myForm.pwd2.$valid && (pwd==pwd2), 'has-error':myForm.pwd2.$invalid && myForm.pwd2.$dirty || (pwd!=pwd2)}">
+          <input type="password" class="form-control" id="pwd2" name="pwd2" ng-model="pwd2" ng-required="true" placeholder="비밀번호 확인"/>
+          <p ng-show="myForm.pwd2.$invalid && myForm.pwd2.$dirty || (pwd!=pwd2)"  class="help-block">비밀 번호가 일치 하지않습니다.</p>
+          <span ng-show="myForm.pwd2.$valid" class="form-control-feedback glyphicon glyphicon-ok"></span>
+          <span ng-show="myForm.pwd2.$invalid && myForm.pwd2.$dirty || (pwd!=pwd2)" class="form-control-feedback glyphicon glyphicon-remove"></span>
+        </div>
+        <div class="form-group has-feedback" ng-class="{'has-error':myForm.email.$invalid&&myForm.email.$dirty,'has-success':myForm.email.$valid}">
+          <input type="text" class="form-control" id="email" name="email" ng-model="email" ng-required="true" ng-pattern="/^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/" placeholder="이메일"/>
+          <p class="help-block" ng-show="myForm.email.$error.required&&myForm.email.$dirty">반드시 입력하세요</p>
+          <p class="help-block" ng-show="myForm.email.$error.pattern&&myForm.email.$dirty">올바른 이메일을 입력하세요.</p>
+          <span class="form-control-feedback glyphicon glyphicon-ok" ng-show="myForm.email.$valid"></span>
+          <span class="form-control-feedback glyphicon glyphicon-remove" ng-show="myForm.email.$invalid&&myForm.email.$dirty"></span>
+        </div>
+        <!-- 폼이 유효하지 않으면 button 사용 불가 하게 -->
+        <button ng-disabled="myForm.$invalid" type="submit" class="btn btn-primary btn-block">가입</button>
+      </form>
+
+
+
+    </div>
+  </div>
+</div>
+{% endblock %}

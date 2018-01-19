@@ -1,0 +1,45 @@
+<div class="container" id="bg">
+  <div class="row" id="foodheader">
+    <h1><strong>맛집</strong></h1>
+    <h1>미슐랭맛집<br><a href="#food" ng-click="activated='food'" ng-class="{active:activated=='food'}">카테고리</a>입니다<br />
+    </h1>
+  </div>
+  <hr>
+  <div class="row" id="foodmain" >
+    <div class="thumbnails">
+      <div>
+        <a href="../images/fullfood5/01.png">
+          <img src="../images/food5/01.png" alt="" />
+          <h3>니뽕내뽕</h3>
+        </a>
+        <a href="../images/fullfood5/02.png">
+          <img src="../images/food5/02.png" alt="" />
+          <h3>스테이끼</h3>
+        </a>
+      </div>
+      <div>
+        <a href="../images/fullfood5/03.png">
+          <img src="../images/food5/03.png" alt="" />
+          <h3>김가네</h3>
+        </a>
+        <a href="../images/fullfood5/04.png">
+          <img src="../images/food5/04.png" alt="" />
+          <h3>엽기떢복이</h3>
+        </a>
+        <a href="../images/fullfood5/05.png">
+          <img src="../images/food5/05.png" alt="" />
+          <h3>밥무라</h3>
+        </a>
+      </div>
+  </div>
+</div>
+
+    <script>
+     $(function() {
+      $('.thumbnails').poptrox({
+        usePopupCaption: false,
+        usePopupNav: true,
+        popupPadding: 0
+      });
+    });
+    </script>

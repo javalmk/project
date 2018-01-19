@@ -1,0 +1,132 @@
+<style>
+
+  #selected{
+    width: auto;
+    margin:0 5px 5px 5px;
+  }
+</style>
+<div class="container signupform">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h3>회원가입</h3>
+    </div>  
+      <form  class="form-horizontal" action="signup" name="myForm" novalidate>
+         <!-- ID 검증 -->
+        <div class="form-group has-feedback"
+            ng-class="{'has-success':myForm.id.$valid ,'has-error':myForm.id.$invalid && myForm.id.$dirty}">
+            <label class="col-sm-3 control-label" for="id">아이디</label>
+          <div class="col-sm-6">
+            <input class="form-control" id="id" name="id" type="text" ng-model="id" ng-required="true"
+            ng-pattern="/^[a-zA-Z]+$/" placeholder="아이디" />   
+            <p ng-show="myForm.id.$error.required && myForm.id.$dirty" class="help-block">반드시 입력하세요</p>
+            <p ng-show="myForm.id.$error.pattern && myForm.id.$dirty" class="help-block">영문자만 입력하세요</p>
+            <span class="form-control-feedback glyphicon glyphicon-ok" ng-show="myForm.id.$valid"></span>
+            <span class="form-control-feedback glyphicon glyphicon-remove" ng-show="myForm.id.$invalid && myForm.id.$dirty"></span>
+          </div> <!-- div.col -->
+        </div>  <!-- div.form-group -->
+        <!-- 비밀번호1  -->
+        <div class="form-group has-feedback"
+            ng-class="{'has-success':myForm.inputPwd.$valid,  'has-error':myForm.inputPwd.$invalid && myForm.inputPwd.$dirty}">
+            <label class="col-sm-3 control-label" for="pwd">비밀번호</label>
+            <div class="col-sm-6">
+            <input class="form-control" type="text" id="inputPwd" name="inputPwd" 
+            ng-model="pwd" ng-required="true" ng-minlength="8" ng-maxlength="15" ng-pattern="/^[a-zA-Z0-9]/"
+            placeholder="비밀번호" />
+            <p ng-show="myForm.inputPwd.$error.required && myForm.inputPwd.$dirty"  class="help-block">반드시 입력해주세요</p>
+            <p ng-show="myForm.inputPwd.$error.minlength && myForm.inputPwd.$dirty" class="help-block"> 3글자 이상</p>
+            <p ng-show="myForm.inputPwd.$error.maxlength && myForm.inputPwd.$dirty" class="help-block"> 6글자 이하</p>
+            <span ng-show="myForm.inputPwd.$valid" class="form-control-feedback glyphicon glyphicon-lock"></span>
+            <span ng-show="myForm.inputPwd.$invalid && myForm.inputPwd.$dirty" class="form-control-feedback glyphicon glyphicon-remove"></span>
+          </div> 
+        </div>
+        <!-- 비밀 번호 2 -->
+        <div class="form-group has-feedback"
+            ng-class="{'has-success':myForm.pwd2.$valid,  'has-error':myForm.pwd2.$invalid && myForm.pwd2.$dirty}">
+            <label  class=" col-sm-3 control-label" for="pwd2">비밀번호 확인</label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" id="pwd2" name="pwd2"
+
+            ng-model="pwd2" ng-required="true" ng-minlength="8" 
+            ng-pattern=/^[a-zA-Z0-9]$/
+             ng-maxlength="15" placeholder="비밀번호 확인" value-matches="pwd" />
+            <p ng-show="myForm.pwd2.$invalid && myForm.pwd2.$dirty"  class="help-block">비밀 번호 확인해주세요.</p>
+            <!-- <p ng-show="myForm.pwd2.$error.minlength && myForm.pwd2.$dirty" class="help-block"> 3글자 이상</p>
+            <p ng-show="myForm.pwd2.$error.maxlength && myForm.pwd2.$dirty" class="help-block"> 6글자 이하</p> -->
+            <span ng-show="myForm.pwd2.$valid" class="form-control-feedback glyphicon glyphicon-lock"></span>
+            <span ng-show="myForm.pwd2.$invalid && myForm.pwd2.$dirty" class="form-control-feedback glyphicon glyphicon-remove"></span>
+          </div> <!-- pwd2 form group-->
+        </div>
+        <!-- 이름 -->
+        <div class="form-group">
+                <label class="col-sm-3 control-label" for="inputName">이름</label>
+                <div class="col-sm-6">
+                   <input class="form-control" id="inputName" type="text" placeholder="이름">
+                </div>
+            </div>
+            <!-- 성별  -->
+            <div class="form-group">
+                  <label class="col-sm-3 control-label" for="inputName">성별</label>
+                  <div class="col-sm-6">  
+                      <label class="radio-inline">
+              <input type="radio" name="inlineRadioOptions" id="  inlineRadio1" value="option1"> 남자
+              </label>
+              <label class="radio-inline">
+              <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 여자
+              </label>
+                  </div>
+            </div>
+            <!-- 휴대폰 번호  -->
+        <div class="form-group has-feedback"
+          ng-class="{'has-success':myForm.inputNumber.$valid,'has-error':myForm.inputNumber.$invalid && myForm.inputNumber.$dirty}">
+                <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
+                <div class="col-sm-6">
+                <select  class="col-sm-3 btn-sm" name="" id="selected">
+                  <option label="통신사" value="">통신사</option>
+                    <option value="">SKT</option>
+                     <option value="">KT</option>
+                      <option value="">LG</option>
+                </select>
+                <div class="input-group">
+                     <input type="tel" class="form-control" id="inputNumber" name="inputNumber" placeholder="- 없이 입력해 주세요" ng-model="inputNumber"   ng-required="true" 
+                        ng-pattern="/^[0-9]+$/"/>
+                     <span class="input-group-btn">
+                     <span ng-show="myForm.inputNumber.$valid" class="form-control-feedback glyphicon glyphicon-ok"></span>
+                      <span ng-show="myForm.inputNumber.$invalid && myForm.inputNumber.$dirty" class="form-control-feedback glyphicon glyphicon-remove"></span>
+                     <button class="btn btn-success" ng-disabled="myForm.inputNumber.$invalid" >인증번호 전송</button>
+                     </span>
+                </div>
+              </div>
+          </div>
+       <div class="form-group">
+          <div class="col-md-3 col-sm-6 col-sm-offset-3">
+            <div class="form-actions">
+              <form action="" class=" text-center col-sm-6">
+                <textarea rows="10" cols="50" class="input-block-level">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil magnam ipsam, corporis laudantium eaque accusamus aperiam, consectetur deserunt iure quos. Eligendi, est quis delectus ut. Nisi cum, eligendi officia adipisci?
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi explicabo, iusto. Nobis suscipit molestiae esse ut reiciendis possimus, alias delectus ex, unde laborum repudiandae iste aut magni quas dicta! Quos?
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, adipisci, eum nulla consequuntur veniam dolor est velit quisquam quis aliquid, nemo optio suscipit omnis repellendus. Veritatis, repellendus. Nobis, magni, atque.
+                </textarea>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <!--     <label for="inputAgree" class="col-sm-6 control-label">약관 동의</label> -->
+                  <div class="col-sm-6 col-sm-offset-3 checkbox">
+                      <label class="checkbox-inline">
+                <input type="checkbox" value="#"> 이용약관에 동의합니다.
+                </label>
+                  <div>
+              </div>
+            </div>
+          </form>
+          <br/>
+     <div style="height: 200px; margin-left:20px" class="col-xs-12 text-center">
+        <a ng-disabled="myForm.$invalid" class=" btn btn-default" href="#">가입</a>
+        <a class="btn btn-danger" href="index.html">취소</a>
+      </div>
+     
+   </div>
+
+
+
