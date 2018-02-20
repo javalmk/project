@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>ptory</title>
+<link rel="stylesheet" href="/css/bootstrapw.css">
+<link rel="stylesheet" href="/css/font-awesome.css"/>
+<link rel="stylesheet" href="/css/fotorama.css"/>
+<link rel="stylesheet" href="/css/slick.css">
+<link rel="stylesheet" href="/css/animate.css">
+<link rel="stylesheet" href="/css/slick-theme.css">
+<link rel="stylesheet" href="/css/blueimp-gallery.min.css">
+<!-- 4조 custum css 입니다.-->
+<link rel="stylesheet" href="/css/create.css"/>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/angular.min.js"></script>
+<script src="/js/angular-route.min.js"></script>
+<script src="/js/fotorama.js"></script>
+<script src="/js/lazyload.js"></script>
+<script src="/js/slick.js"></script>
+<script src="/js/blueimp-gallery.min.js"></script>
+<script src="/js/jquery.poptrox.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/jquery.poptrox.min.js"></script>
+<!-- 4조 custum js 입니다.-->
+<script src="/js/create.js"></script>
+
+
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div id="ptoryblog" class="col-xs-12 col-sm-4 col-md-3 animated bounce" width="100px">
+			<h1>Ptory blog</h1>
+		</div>
+	<div class="col-xs-8 col-sm-6">
+		
+	</div>
+	</div>
+	
+	<!-- navbar -->
+	<div class="row">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#"><strong>PTORY</strong></a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="myNavbar">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#">전체보기</a></li>
+						<li ng-class="{active:activated=='travel'}"><a href="#travel" ng-click="activated='travel'">여행</a></li>
+						<li ng-class="{active:activated=='it'}"><a href="#it" ng-click="activated='it'">IT</a></li>
+						<li ng-class="{active:activated=='food'}"><a href="#food" ng-click="activated='food'">맛집</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <!-- 회원가입 링크 -->
+						<li ng-class="{active:activated=='login'}"><a href="#login" ng-click="activated='login'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<li ng-class="{active:activated=='signUp'}"><a href="#signUp" ng-click="activated='signUp'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+	</div>
+	<div class="row">
+
+		<div ng-controller="navCtrl" class="list-unstyled text-center" id="leftNav">
+			<span style="color:#4c4646; font-size: 10pt"><strong>&nbsp;qick menu&nbsp;</strong></span>
+				<li ng-class="{active:activated=='home'}"><a href="#home" ng-click="activated='home'"><i class="fa fa-home fa-2x icon-white"></i></a></li>
+				<li ng-class="{active:activated=='table'}"><a href="#table" ng-click="activated='table'"><i class="fa fa-book fa-2x icon-white"></i></a></li>
+
+		
+		</div>
+		<div class="col-xs-12 col-sm-9 col-sm-offset-1" >
+			<div ng-view class="main-index"></div>
+		</div>
+		<div class="col-xs-12 col-sm-2">
+			<div class="ad" id="floatMenu">
+			<div class="well">
+					 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1000">
+						<div class="carousel-inner">
+							<div class="item active">
+									<a href="http://shop.kt.com/display/olhsPlan.do?plnDispNo=863&cmpid=tf_shop_wless_171103-cpc-lteph_iphone03-nbs-KT%EC%95%84%EC%9D%B4%ED%8F%B08%EC%82%AC%EC%A0%84%EC%98%88%EC%95%BD">
+										<img src="images/iii8.jpg"/></a>
+							</div> <!-- active -->
+							<div class="item">
+									<a href="https://www.samsung.com/sec/galaxynote8/">
+										<img src="images/note.png"/></a>
+							</div>
+					</div> <!-- myCarousel -->
+				</div> <!-- well -->
+		</div>  <!-- sidenav -->
+			<div class="well">
+				<a href="http://www.gmarket.co.kr/">
+					<img src="images/sh.jpg"></a>
+			</div>
+			<div>
+	
+
+			<!-- 검색창 -->
+			<form style="padding-left:0px" class="navbar-form navbar-right search" method=get action="http://www.google.co.kr/search" target="_blank">
+				<div class="form-group input-group">
+    				<input id="search" type="search" name="q" class="form-control glyphicon glyphicon-search" placeholder="&#xe003" />
+				</div>
+			</form>
+				
+
+			</div>				
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+<div class="footer container-fluid text-right">
+	<div class="row">
+		<div class="col-xs-12" id="footericon">
+		  <a href="http://www.twitter.com"><i class="fa fa-twitter fa-2x icon-white"></i></a>
+		  <a href="http://www.facebook.com"><i class="fa fa-facebook fa-2x"></i></a>
+		  <a href="http://www.google.com"><i class="fa fa-google fa-2x icon-red"></i></a>
+		  <i class="fa fa-print fa-2x icon-white"></i>
+		  <i text-left class="fa fa-map fa-2x icon-white"></i>		
+		</div>
+		<div class="col-xs-12" id="lorem">
+	<p> W3Schools is optimized for learning, testing, and training. Examples might be simplified to improve reading and basic understanding. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. While using this site, you agree to have read and accepted our terms of use, cookie and privacy policy. Copyright 1999-2017 by Refsnes Data. All Rights Reserved.
+	Powered by W3.CSS.</p>
+</div>
+</div>	
+
+</div>
+<script>
+	$(document).ready(function() {
+
+	// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
+	var floatPosition = parseInt($("#floatMenu").css('top'));
+	// 250px 이런식으로 가져오므로 여기서 숫자만 가져온다. parseInt( 값 );
+
+	$(window).scroll(function() {
+		// 현재 스크롤 위치를 가져온다.
+		var scrollTop = $(window).scrollTop();
+		var newPosition = scrollTop + floatPosition + "px";
+
+		/* 애니메이션 없이 바로 따라감
+		 $("#floatMenu").css('top', newPosition);
+		 */
+
+		$("#floatMenu").stop().animate({
+			"top" : newPosition
+		}, 500);
+
+	}).scroll();
+
+});
+</script>
+</body>
+</html>

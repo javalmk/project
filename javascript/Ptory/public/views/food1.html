@@ -1,0 +1,45 @@
+<div class="container" id="bg">
+  <div class="row" id="foodheader">
+    <h1><strong>맛집</strong></h1>
+    <h1>중식<br><a href="#food" ng-click="activated='food'" ng-class="{active:activated=='food'}">카테고리</a>입니다<br />
+    </h1>
+  </div>
+  <hr>
+  <div class="row" id="foodmain" >
+    <div class="thumbnails">
+      <div>
+        <a href="../images/fullfood1/01.jpg">
+          <img src="../images/food1/01.jpg" alt="" />
+          <h3>홍연</h3>
+        </a>
+        <a href="../images/fullfood1/02.jpg">
+          <img src="../images/food1/02.jpg" alt="" />
+          <h3>채운</h3>
+        </a>
+      </div>
+      <div>
+        <a href="../images/fullfood1/03.jpg">
+          <img src="../images/food1/03.png" alt="" />
+          <h3>홍보각</h3>
+        </a>
+        <a href="../images/fullfood1/04.jpg">
+          <img src="../images/food1/04.jpg" alt="" />
+          <h3>팔선</h3>
+        </a>
+        <a href="../images/fullfood1/05.jpg">
+          <img src="../images/food1/05.jpg" alt="" />
+          <h3>서래양</h3>
+        </a>
+      </div>
+  </div>
+</div>
+
+<script>
+     $(function() {
+      $('.thumbnails').poptrox({
+        usePopupCaption: false,
+        usePopupNav: true,
+        popupPadding: 0
+      });
+    });
+</script>
